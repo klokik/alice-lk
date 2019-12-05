@@ -477,6 +477,7 @@ void target_init(void)
 	}
 #endif
 
+#if 0
 #if VERIFIED_BOOT || defined(SET_ROT_ONLY)
 #if VERIFIED_BOOT
 	if (VB_V2 == target_get_vb_version())
@@ -518,6 +519,7 @@ void target_init(void)
 			ASSERT(0);
 		}
 	}
+#endif
 #endif
 }
 
