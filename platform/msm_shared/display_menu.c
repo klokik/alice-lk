@@ -78,6 +78,8 @@ static const char *unlock_menu_common_msg = "If you unlock the bootloader, "\
 static bool is_thread_start = false;
 static struct select_msg_info msg_info;
 
+#define VERIFIED_BOOT 1
+
 #if VERIFIED_BOOT
 struct boot_verify_info {
 	int msg_type;
@@ -294,7 +296,9 @@ void display_bootverify_menu_renew(struct select_msg_info *msg_info, int type)
 			boot_verify_info[type].msg_type, common_factor);
 
 	if (type == DISPLAY_MENU_YELLOW) {
-		fp_buf = get_boot_fingerprint(&fp_size);
+		//fp_buf = get_boot_fingerprint(&fp_size);
+		fp_buf = "Get Boot  fingerprint\0";
+    fp_size = 12;
 		if (fp_buf != NULL) {
 			strlcpy(fp_str_temp, (char const *)fp_buf, fp_size);
 			for (i = 0; i < fp_size; i++) {
